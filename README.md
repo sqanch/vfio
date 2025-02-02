@@ -49,7 +49,7 @@ Apply the settings with `sudo netplan apply`.
 I had to disable AppArmor for librivt because it wasn't able to load the profile. Edit `/etc/libvirt/qemu.conf` and add `security_driver = "none"`.
 
 # Create VM
-Finally you can create the VM. As I used Ubuntu Server as the host I started virt-manager on another machine and connected it to the host via ssh (File -> Add Connection...). Create a new VM, choose local ISO and select an ISO, specify RAM and CPU, disable storage if you want to pass a drive to the VM, on the last screen make sure to click "Customize configuration before install".
+Finally you can create the VM. As I used Ubuntu Server as the host I started virt-manager on another machine and connected it to the host via ssh (File -> Add Connection...). Create a new VM, choose local ISO and select an ISO, specify RAM and CPU, disable storage if you want to pass a drive to the VM, on the last screen make sure to click "Customize configuration before install" and set the network to the previously created bridge `br0`.
 In the overview settings make the following changes: Chipset: “Q35”, Firmware: “OVMF_CODE_4M.secboot.fd”.
 In the CPU settings you can change the topology to match your physical CPU.
 At last click on "Add hardware" and add all the PCIe devices (GPU, USB controller, storage). You may need to enable the storage under Boot Options.
