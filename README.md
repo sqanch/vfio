@@ -43,7 +43,7 @@ Edit `/etc/netplan/50-cloud-init.yaml` and add:
         interfaces:
           - enp5s0 # your network interface
 ```
-Apply the settings with `sudo netplan apply`.
+You can try out the settings with `sudo netplan try`or apply them directly with `sudo netplan apply`.
 
 # Disable AppArmor
 I had to disable AppArmor for librivt because it wasn't able to load the profile. Edit `/etc/libvirt/qemu.conf` and add `security_driver = "none"`.
