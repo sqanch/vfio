@@ -46,7 +46,7 @@ Edit `/etc/netplan/50-cloud-init.yaml` and add:
 You can try out the settings with `sudo netplan try`or apply them directly with `sudo netplan apply`.
 
 # Disable AppArmor
-I had to disable AppArmor for librivt because it wasn't able to load the profile. Edit `/etc/libvirt/qemu.conf` and add `security_driver = "none"`.
+I had to disable AppArmor for librivt because it wasn't able to load the profile. Edit `/etc/libvirt/qemu.conf` and add `security_driver = "none"`. Afterwards restart libvirtd with `systemctl restart libvirtd`
 
 # Create VM
 Finally you can create the VM. As I used Ubuntu Server as the host I started virt-manager on another machine and connected it to the host via ssh (File -> Add Connection...). Create a new VM, choose local ISO and select an ISO, specify RAM and CPU, disable storage if you want to pass a drive to the VM, on the last screen make sure to click "Customize configuration before install" and set the network to the previously created bridge `br0`.
